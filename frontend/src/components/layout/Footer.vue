@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
-    <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+  <div class="container-fluid footer text-white px-0 position-relative">
+    <div class="row mx-0 pt-5 px-sm-3 px-lg-5">
       <div class="col-lg-3 col-md-6 mb-5">
         <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get In Touch</h4>
         <p><i class="fa fa-map-marker-alt mr-2"></i>{{ contactAddress || '123 Street, New York, USA' }}</p>
@@ -96,6 +96,8 @@ onMounted(async () => {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: 0 !important;
+  padding-top: 3rem;
 }
 
 .btn-outline-light {

@@ -28,6 +28,20 @@ import Footer from './components/layout/Footer.vue'
 /* Global Font Family and Color Scheme */
 * {
   font-family: 'After Regular', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 :root {
@@ -36,6 +50,7 @@ import Footer from './components/layout/Footer.vue'
   --primary-dark: #231f20;
   --primary-light: #eeeff1;
   --primary-accent: #442a09;
+  --soft-gold: #d4af37;
 }
 
 /* Override default primary colors */
@@ -77,25 +92,30 @@ import Footer from './components/layout/Footer.vue'
 /* Global Page Fade Transition */
 .main-content-wrapper {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .page-fade-transition {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 200px;
   background: linear-gradient(to bottom, 
     transparent 0%, 
-    rgba(145, 109, 77, 0.02) 15%,
-    rgba(145, 109, 77, 0.04) 30%,
-    rgba(44, 24, 16, 0.06) 45%,
-    rgba(44, 24, 16, 0.12) 60%,
-    rgba(44, 24, 16, 0.18) 75%,
-    rgba(44, 24, 16, 0.25) 90%,
-    rgba(44, 24, 16, 0.35) 100%
+    rgba(145, 109, 77, 0.01) 10%,
+    rgba(145, 109, 77, 0.03) 20%,
+    rgba(145, 109, 77, 0.05) 30%,
+    rgba(44, 24, 16, 0.08) 40%,
+    rgba(44, 24, 16, 0.12) 50%,
+    rgba(44, 24, 16, 0.18) 60%,
+    rgba(44, 24, 16, 0.25) 70%,
+    rgba(44, 24, 16, 0.35) 80%,
+    rgba(44, 24, 16, 0.45) 90%,
+    rgba(44, 24, 16, 0.55) 100%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
 }
 </style>
