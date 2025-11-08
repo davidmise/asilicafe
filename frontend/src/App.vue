@@ -1,0 +1,101 @@
+<template>
+  <div id="app">
+    <!-- Navbar Component -->
+    <Navbar />
+
+    <!-- Main Content -->
+    <div class="main-content-wrapper">
+      <router-view />
+      <!-- Global Page Fade Transition -->
+      <div class="page-fade-transition"></div>
+    </div>
+
+    <!-- Footer Component -->
+    <Footer />
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  </div>
+</template>
+
+<script setup>
+// Import layout components
+import Navbar from './components/layout/Navbar.vue'
+import Footer from './components/layout/Footer.vue'
+</script>
+
+<style>
+/* Global Font Family and Color Scheme */
+* {
+  font-family: 'After Regular', Arial, sans-serif;
+}
+
+:root {
+  --primary-white: #ffffff;
+  --primary-brown: #916d4d;
+  --primary-dark: #231f20;
+  --primary-light: #eeeff1;
+  --primary-accent: #442a09;
+}
+
+/* Override default primary colors */
+.text-primary {
+  color: var(--primary-brown) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-brown);
+  border-color: var(--primary-brown);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+.bg-primary {
+  background-color: var(--primary-brown) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-brown) !important;
+}
+
+/* Back to top button styling */
+.back-to-top {
+  background-color: var(--primary-brown);
+  border-color: var(--primary-brown);
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+/* Global Page Fade Transition */
+.main-content-wrapper {
+  position: relative;
+}
+
+.page-fade-transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(145, 109, 77, 0.02) 15%,
+    rgba(145, 109, 77, 0.04) 30%,
+    rgba(44, 24, 16, 0.06) 45%,
+    rgba(44, 24, 16, 0.12) 60%,
+    rgba(44, 24, 16, 0.18) 75%,
+    rgba(44, 24, 16, 0.25) 90%,
+    rgba(44, 24, 16, 0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+</style>
