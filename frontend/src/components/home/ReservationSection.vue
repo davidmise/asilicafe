@@ -43,5 +43,109 @@ import ReservationForm from '../forms/ReservationForm.vue'
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991.98px) {
+  /* Stack columns on mobile */
+  .reservation .row {
+    flex-direction: column;
+  }
+  
+  /* Reduce padding on mobile */
+  .reservation .p-5 {
+    padding: 2rem !important;
+  }
+  
+  /* Adjust heading sizes */
+  .reservation .display-3 {
+    font-size: 2.5rem;
+  }
+  
+  .reservation h1 {
+    font-size: 1.75rem;
+  }
+  
+  /* Adjust vertical spacing */
+  .reservation .my-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .reservation .my-lg-0 {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Extra small devices */
+  .reservation .p-5 {
+    padding: 1.5rem !important;
+  }
+  
+  .reservation .display-3 {
+    font-size: 2rem;
+  }
+  
+  .reservation h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Adjust list items */
+  .reservation .list-inline li {
+    font-size: 0.9rem;
+  }
+  
+  /* Form container adjustments */
+  .text-center.p-5 {
+    padding: 1.5rem !important;
+  }
+  
+  .text-center h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 1rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Very small devices */
+  .reservation .p-5 {
+    padding: 1rem !important;
+  }
+  
+  .reservation .display-3 {
+    font-size: 1.75rem;
+  }
+  
+  .reservation h1 {
+    font-size: 1.25rem;
+  }
+  
+  .reservation p {
+    font-size: 0.9rem;
+  }
+  
+  .text-center.p-5 {
+    padding: 1rem !important;
+  }
+  
+  /* Make container full width on very small screens */
+  .container-fluid.my-5 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .reservation .p-5 {
+    padding: 2.5rem !important;
+  }
+  
+  .reservation .display-3 {
+    font-size: 3rem;
+  }
 }
 </style>
