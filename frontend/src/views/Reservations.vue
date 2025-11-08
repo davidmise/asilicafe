@@ -1,5 +1,5 @@
 <template>
-  <div class="reservations-page">
+  <div class="reservations-page hero-page">
     <!-- Page Header Start -->
     <PageHeader 
       title="Reservations" 
@@ -21,5 +21,10 @@ import ReservationSection from '@/components/home/ReservationSection.vue'
 <style scoped>
 .reservations-page {
   min-height: 100vh;
+}
+
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 </style>

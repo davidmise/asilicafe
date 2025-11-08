@@ -1,13 +1,23 @@
-<template>
+<template >
   <div class="menu-container" ref="menuContainer">
     <!-- Loading State -->
-    <div v-if="loading" class="loading-state">
+    <!-- <div v-if="loading" class="loading-state">
       <div class="loading-spinner"></div>
       <p class="loading-text">Loading our delicious menu...</p>
-    </div>
+    </div> -->
 
+    <!-- Section Title -->
+    <div class="menu-section-header">
+      <div class="container">
+        <div class="section-title" ref="sectionTitle">
+          <h4 class="text-primary text-uppercase section-subtitle" style="letter-spacing: 5px;">Our Menu</h4>
+          <h1 class="display-4 section-main-title">{{ aboutTitle || 'Discover Our Flavors' }}</h1>
+        </div>
+      </div>
+    </div>
+    
     <!-- Main Menu Layout -->
-    <div v-else class="menu-layout" ref="menuLayout">
+    <div class="menu-layout" ref="menuLayout">
       <!-- Categories Sidebar -->
       <div class="categories-sidebar" ref="categoriesSidebar">
         <div class="sidebar-header">
@@ -553,6 +563,46 @@ onUnmounted(() => {
   margin: 0;
 }
 
+/* Section Header */
+.menu-section-header {
+  background: linear-gradient(135deg, var(--light-cream) 0%, var(--warm-beige) 100%);
+  padding: 3rem 0 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.menu-section-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-brown), var(--soft-gold), var(--primary-brown));
+  border-radius: 2px;
+}
+
+.section-title {
+  margin: 0;
+}
+
+.section-subtitle {
+  color: var(--primary-brown) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.section-main-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark-brown);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(145, 109, 77, 0.1);
+}
+
 /* Loading State */
 .loading-state {
   display: flex;
@@ -584,7 +634,9 @@ onUnmounted(() => {
 .menu-layout {
   display: flex;
   position: relative;
-  min-height: 100vh;
+  height: auto;
+  min-height: 70vh;
+  max-height: 85vh;
   background: var(--white);
   box-shadow: none;
   border-radius: 0;
@@ -597,12 +649,13 @@ onUnmounted(() => {
   width: 20%;
   background: linear-gradient(180deg, var(--dark-brown) 0%, var(--primary-brown) 100%);
   color: var(--white);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
+  min-height: 70vh;
+  max-height: 85vh;
   overflow-y: auto;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .categories-sidebar::before {
@@ -758,20 +811,23 @@ onUnmounted(() => {
 .menu-content {
   width: 80%;
   background: var(--white);
-  overflow-y: auto;
+  height: auto;
+  min-height: 70vh;
+  max-height: 85vh;
+  overflow: hidden;
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-header {
-  padding: 2.5rem 3rem 1.5rem;
+  padding: 2rem 3rem 1.2rem;
   background: linear-gradient(135deg, var(--light-cream), var(--warm-beige));
   border-bottom: 3px solid var(--primary-brown);
   text-align: center;
-  position: sticky;
-  top: 0;
   z-index: 10;
   box-shadow: 0 3px 20px var(--shadow-light);
+  flex-shrink: 0;
 }
 
 .header-ornament {
@@ -802,11 +858,34 @@ onUnmounted(() => {
 
 /* Menu Items Grid */
 .menu-items-grid {
-  padding: 2rem 3rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  padding: 1.5rem 3rem 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex: 1;
+  display: flex;
   gap: 1.5rem;
   background: var(--white);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.menu-items-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.menu-items-grid::-webkit-scrollbar-track {
+  background: var(--light-cream);
+  border-radius: 4px;
+}
+
+.menu-items-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--primary-brown), var(--secondary-brown));
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.menu-items-grid::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--secondary-brown), var(--primary-brown));
 }
 
 /* Individual Menu Items */
@@ -821,6 +900,10 @@ onUnmounted(() => {
   border: 2px solid transparent;
   display: flex;
   flex-direction: column;
+  width: 280px;
+  flex-shrink: 0;
+  height: fit-content;
+  max-height: calc(100vh - 220px);
 }
 
 .menu-item::before {
@@ -1195,9 +1278,11 @@ onUnmounted(() => {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
+  .menu-item {
+    width: 260px;
+  }
+  
   .menu-items-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
     padding: 2rem;
   }
   
@@ -1213,7 +1298,8 @@ onUnmounted(() => {
 @media (max-width: 992px) {
   .menu-layout {
     flex-direction: column;
-    min-height: auto;
+    height: auto;
+    max-height: none;
   }
   
   .categories-sidebar {
@@ -1238,7 +1324,20 @@ onUnmounted(() => {
   
   .menu-content {
     width: 100%;
-    min-height: auto;
+    height: auto;
+    max-height: none;
+  }
+  
+  .menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    overflow: visible;
+  }
+  
+  .menu-item {
+    width: 100%;
+    max-height: none;
   }
 }
 

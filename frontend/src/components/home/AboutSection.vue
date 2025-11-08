@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid py-5" ref="aboutContainer">
+  <div class="container-fluid pb-5" ref="aboutContainer">
     <div class="container">
       <div class="section-title" ref="sectionTitle">
         <h4 class="text-primary text-uppercase section-subtitle" style="letter-spacing: 5px;">About Us</h4>

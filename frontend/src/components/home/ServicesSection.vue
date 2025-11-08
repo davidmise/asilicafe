@@ -126,28 +126,28 @@ const fallbackServices = [
     id: 1,
     title: 'Scan QR Code for Menu',
     description: 'Simply scan the QR code at your table to instantly access our full digital menu. Browse through our authentic Zanzibari coffee selections, traditional dishes, and special offers from both branches.',
-    image: 'https://via.placeholder.com/400x300/916d4d/ffffff?text=QR+Code+Menu',
+    image: '/img/service-1.jpg',
     icon: 'fa fa-qrcode'
   },
   {
     id: 2,
     title: 'Select Your Order',
     description: 'Choose from our extensive menu featuring premium coffee, fresh juices, traditional Zanzibari cuisine, and delicious snacks. Customize your order with available options and variations.',
-    image: 'https://via.placeholder.com/400x300/da9f5b/ffffff?text=Select+Items',
+    image: '/img/service-2.jpg',
     icon: 'fa fa-mobile-alt'
   },
   {
     id: 3,
     title: 'Easy Digital Payment',
     description: 'Pay securely through our digital platform with mobile money, card payments, or cash on delivery. Get instant confirmation and track your order status in real-time.',
-    image: 'https://via.placeholder.com/400x300/916d4d/ffffff?text=Digital+Payment',
+    image: '/img/service-3.jpg',
     icon: 'fa fa-credit-card'
   },
   {
     id: 4,
     title: 'Fast Table Service',
     description: 'Your order is sent directly to our kitchen and prepared fresh. Enjoy contactless ordering while our staff delivers your authentic Asili Cafe experience right to your table.',
-    image: 'https://via.placeholder.com/400x300/da9f5b/ffffff?text=Table+Service',
+    image: '/img/service-4.jpg',
     icon: 'fa fa-utensils'
   }
 ]

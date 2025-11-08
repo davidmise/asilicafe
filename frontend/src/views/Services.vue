@@ -1,5 +1,5 @@
 <template>
-  <div class="services-page">
+  <div class="services-page hero-page">
     <!-- Page Header Start -->
     <PageHeader 
       title="Our Services" 
@@ -21,5 +21,9 @@ import PageHeader from '@/components/layout/PageHeader.vue'
 <style scoped>
 .services-page {
   min-height: 100vh;
+}
+
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
 }
 </style>

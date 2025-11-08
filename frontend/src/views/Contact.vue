@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-page">
+  <div class="contact-page hero-page">
     <!-- Page Header Start -->
     <PageHeader 
       title="Contact Us" 
@@ -174,6 +174,10 @@ onMounted(() => {
 <style scoped>
 .contact-page {
   min-height: 100vh;
+}
+
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
 }
 
 /* Section Title Styling */

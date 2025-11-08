@@ -68,11 +68,24 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
+    // Always scroll to top smoothly for page transitions
+    return new Promise((resolve) => {
+      // Add a slight delay to work with page transition timing
+      setTimeout(() => {
+        if (savedPosition) {
+          resolve({
+            ...savedPosition,
+            behavior: 'smooth'
+          })
+        } else {
+          resolve({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }
+      }, 200) // Delay to allow transition to start
+    })
   }
 })
 

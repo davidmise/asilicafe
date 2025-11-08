@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-page">
+  <div class="menu-page hero-page">
     <!-- Page Header Start -->
     <PageHeader 
       title="Menu" 
@@ -10,6 +10,7 @@
     
     <!-- Featured Menu Component -->
     <FeaturedMenu />
+
   </div>
 </template>
 
@@ -24,6 +25,10 @@ import PageHeader from '@/components/layout/PageHeader.vue'
   position: relative;
   margin: 0;
   padding: 0;
+}
+
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
 }
 
 .menu-price {

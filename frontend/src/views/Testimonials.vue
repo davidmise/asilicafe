@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonials-page">
+  <div class="testimonials-page hero-page">
     <!-- Page Header Start -->
     <PageHeader 
       title="Testimonials" 
@@ -21,5 +21,9 @@ import TestimonialsSection from '@/components/home/TestimonialsSection.vue'
 <style scoped>
 .testimonials-page {
   min-height: 100vh;
+}
+
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
 }
 </style>

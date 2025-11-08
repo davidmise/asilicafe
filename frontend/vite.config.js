@@ -15,4 +15,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    // Ensure favicon is served correctly
+    fs: {
+      allow: ['..']
+    }
+  },
+  // Explicitly handle favicon in build
+  build: {
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+      }
+    }
+  }
 })

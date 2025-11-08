@@ -1,7 +1,7 @@
 <template>
   <!-- Carousel Start -->
-  <div class="container-fluid p-0 mb-5">
-    <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+  <div class="container-fluid p-0">
+    <div id="blog-carousel" class="carousel slide " data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="w-100" src="/img/carousel-1.jpg" alt="Image">

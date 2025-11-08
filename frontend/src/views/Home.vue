@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home hero-page">
     <!-- Hero Carousel Component -->
     <HeroCarousel />
 
@@ -29,3 +29,9 @@ import SpecialOffer from '@/components/home/SpecialOffer.vue'
 import ReservationSection from '@/components/home/ReservationSection.vue'
 import TestimonialsSection from '@/components/home/TestimonialsSection.vue'
 </script>
+
+<style scoped>
+.hero-page :deep(.container-fluid:first-of-type) {
+  padding-top: 0 !important;
+}
+</style>
