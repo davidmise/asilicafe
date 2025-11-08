@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+  <!-- Page Loader -->
+  <PageLoader v-if="showLoader" @finished="onLoaderFinished" />
+    
     <!-- Loading Progress Bar -->
     <div class="page-loading-bar" :class="{ active: isLoading }"></div>
     
@@ -38,10 +41,13 @@ import { useRouter } from 'vue-router'
 // Import layout components
 import Navbar from './components/layout/Navbar.vue'
 import Footer from './components/layout/Footer.vue'
+import PageLoader from './components/layout/PageLoader.vue'
 
 // Loading state for page transitions
 const isLoading = ref(false)
 const router = useRouter()
+// Page loader visibility
+const showLoader = ref(true)
 
 // Transition event handlers
 const onBeforeLeave = () => {
@@ -75,6 +81,10 @@ onMounted(() => {
   // Ensure loading state is false on initial mount
   isLoading.value = false
 })
+
+const onLoaderFinished = () => {
+  showLoader.value = false
+}
 </script>
 
 <style>

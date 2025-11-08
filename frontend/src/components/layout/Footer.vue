@@ -92,7 +92,7 @@ onMounted(async () => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(rgba(51, 33, 29, .8), rgba(51, 33, 29, .8)), url('/img/carousel-2.jpg');
+  background: linear-gradient(rgba(51, 33, 29, .8), rgba(51, 33, 29, .8)), url('/img/bg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
