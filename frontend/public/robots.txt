@@ -1,0 +1,9 @@
+# Robots.txt for Asili Cafe
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://asilicafe.co.tz/sitemap.xml

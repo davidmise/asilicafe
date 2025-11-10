@@ -15,44 +15,40 @@
         </div>
       </div>
     </div>
-    
+
+  
     <!-- Main Menu Layout -->
     <div class="menu-layout" ref="menuLayout">
-      <!-- Categories Sidebar -->
-      <div class="categories-sidebar" ref="categoriesSidebar">
-        <div class="sidebar-header">
-          <img src="/img/asili_cafe_icon.png" alt="Asili Cafe" class="cafe-logo" />
-          <h3 class="sidebar-title">Our Menu</h3>
-          <p class="sidebar-subtitle">Discover our delicious offerings</p>
-        </div>
-        
-        <nav class="categories-nav" ref="categoriesNav">
+      <div class="container">
+
+          <!-- Categories Top Navigation Bar -->
+    <div class="categories-top-nav" ref="categoriesNav">
+      <div class="container">
+        <div class="nav-wrapper" ref="navWrapper">
           <button 
             v-for="(category, index) in categories" 
             :key="category.id"
-            :class="['category-btn', { active: activeCategory === category.id }]"
+            :class="['category-tab', { active: activeCategory === category.id }]"
             @click="setActiveCategory(category.id, index)"
             :data-index="index"
             ref="categoryBtns"
           >
-            <div class="category-content">
-              <span class="category-name">{{ category.name }}</span>
-              <small class="category-description">{{ getCategoryDescription(category.id) }}</small>
-            </div>
+            <span class="category-name">{{ category.name }}</span>
           </button>
-        </nav>
-      </div>
-
-      <!-- Menu Content Area -->
-      <div class="menu-content" ref="contentPanel">
-        <div class="content-header">
-          <div class="header-ornament"></div>
-          <h1 class="category-title">{{ getActiveCategoryName() }}</h1>
-          <p class="category-description">{{ getActiveCategoryDescription() }}</p>
-          <div class="header-ornament"></div>
         </div>
+      </div>
+    </div>
+    
+        <!-- Menu Content Area (Full Width) -->
+        <div class="menu-content" ref="contentPanel">
+          <div class="content-header">
+            <div class="header-ornament"></div>
+            <h1 class="category-title">{{ getActiveCategoryName() }}</h1>
+            <p class="category-description">{{ getActiveCategoryDescription() }}</p>
+            <div class="header-ornament"></div>
+          </div>
 
-        <div class="menu-items-grid" ref="itemsGrid">
+          <div class="menu-items-grid" ref="itemsGrid">
           <div 
             v-for="(item, itemIndex) in getItemsByCategory(activeCategory)" 
             :key="item.id"
@@ -93,6 +89,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
 
     <!-- Item Details Modal -->
@@ -634,194 +631,126 @@ onUnmounted(() => {
 .menu-layout {
   display: flex;
   position: relative;
-  height: auto;
-  min-height: 70vh;
-  max-height: 85vh;
+  flex-direction: column;
   background: var(--white);
   box-shadow: none;
   border-radius: 0;
   overflow: hidden;
   margin: 0;
+  width: 100%;
+  padding: 3rem 0;
 }
 
-/* Categories Sidebar */
-.categories-sidebar {
-  width: 20%;
-  background: linear-gradient(180deg, var(--dark-brown) 0%, var(--primary-brown) 100%);
-  color: var(--white);
-  height: 100%;
-  min-height: 70vh;
-  max-height: 85vh;
-  overflow-y: auto;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
+.menu-layout .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-.categories-sidebar::before {
-  content: '';
-  position: absolute;
+/* Categories Top Navigation Bar */
+.categories-top-nav {
+  background: linear-gradient(135deg, var(--dark-brown) 0%, var(--primary-brown) 100%);
+  padding: 0;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  opacity: 0.3;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid var(--soft-gold);
 }
 
-.sidebar-header {
-  padding: 2rem 1.5rem;
-  text-align: center;
-  border-bottom: 2px solid rgba(218, 159, 91, 0.3);
-  background: rgba(218, 159, 91, 0.1);
-  position: relative;
-  z-index: 2;
+.categories-top-nav .container {
+  max-width: 100%;
+  padding: 0;
 }
 
-.cafe-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 3px solid rgba(218, 159, 91, 0.5);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
-  animation: slowRotate 12s linear infinite;
-}
-
-.cafe-logo:hover {
-  transform: scale(1.05);
-  animation-play-state: paused;
-}
-
-@keyframes slowRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.sidebar-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-  color: var(--soft-gold);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.sidebar-subtitle {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-/* Categories Navigation */
-.categories-nav {
-  padding: 1.5rem 0;
-  position: relative;
-  z-index: 2;
-}
-
-.category-btn {
+.nav-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.8rem;
-  padding: 1rem 1.5rem;
-  margin: 0.3rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--soft-gold) var(--dark-brown);
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0;
+}
+
+.nav-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.nav-wrapper::-webkit-scrollbar-track {
+  background: var(--dark-brown);
+}
+
+.nav-wrapper::-webkit-scrollbar-thumb {
+  background: var(--soft-gold);
+  border-radius: 2px;
+}
+
+.category-tab {
+  flex: 0 0 auto;
+  padding: 1rem 2rem;
   background: transparent;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  color: var(--white);
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-align: left;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
   position: relative;
   overflow: hidden;
-  width: calc(100% - 2rem);
 }
 
-.category-btn::before {
+.category-tab::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(218, 159, 91, 0.2), transparent);
-  transition: left 0.5s;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--soft-gold), var(--secondary-brown));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-50%);
 }
 
-.category-btn:hover::before {
-  left: 100%;
-}
-
-.category-btn:hover {
-  background: rgba(218, 159, 91, 0.2);
-  border-color: var(--secondary-brown);
-  transform: translateX(8px);
-  box-shadow: 0 5px 20px rgba(218, 159, 91, 0.3);
-}
-
-.category-btn.active {
-  background: rgba(218, 159, 91, 0.15);
-  border-color: var(--soft-gold);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-  transform: translateX(8px);
-}
-
-.category-btn.active .category-name {
+.category-tab:hover {
   color: var(--soft-gold);
+  background: rgba(218, 159, 91, 0.1);
+}
+
+.category-tab:hover::before {
+  width: 80%;
+}
+
+.category-tab.active {
+  color: var(--soft-gold);
+  background: rgba(218, 159, 91, 0.15);
   font-weight: 600;
 }
 
-.category-btn.active .category-description {
-  color: rgba(212, 175, 55, 0.8);
-  opacity: 1;
-}
-
-.category-content {
-  flex: 1;
+.category-tab.active::before {
+  width: 100%;
 }
 
 .category-name {
-  font-size: 1rem;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.2rem;
-  font-family: 'Lora', serif;
-}
-
-.category-description {
-  font-size: 0.75rem;
-  opacity: 0.8;
-  display: block;
-  font-weight: 300;
-}
-
-.category-btn.active .category-description {
-  opacity: 0.95;
+  position: relative;
+  z-index: 1;
 }
 
 /* Menu Content Area */
 .menu-content {
-  width: 80%;
+  width: 100%;
   background: var(--white);
-  height: auto;
-  min-height: 70vh;
-  max-height: 85vh;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0;
 }
 
 .content-header {
-  padding: 2rem 3rem 1.2rem;
+  padding: 2rem 0 1.2rem;
   background: linear-gradient(135deg, var(--light-cream), var(--warm-beige));
   border-bottom: 3px solid var(--primary-brown);
   text-align: center;
@@ -858,15 +787,16 @@ onUnmounted(() => {
 
 /* Menu Items Grid */
 .menu-items-grid {
-  padding: 1.5rem 3rem 2rem;
+  padding: 2rem 0;
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   background: var(--white);
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .menu-items-grid::-webkit-scrollbar {
@@ -1283,56 +1213,50 @@ onUnmounted(() => {
   }
   
   .menu-items-grid {
-    padding: 2rem;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+  
+  .menu-layout .container {
+    padding: 0 20px;
   }
   
   .content-header {
-    padding: 2rem;
+    padding: 1.5rem 0;
   }
   
   .category-title {
     font-size: 1.8rem;
+  }
+
+  .category-tab {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 992px) {
   .menu-layout {
     flex-direction: column;
-    height: auto;
-    max-height: none;
+    padding: 2rem 0;
   }
   
-  .categories-sidebar {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    position: relative;
+  .menu-layout .container {
+    padding: 0 15px;
   }
   
-  .categories-nav {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-  
-  .category-btn {
-    margin: 0;
-    width: 100%;
-    justify-content: flex-start;
-  }
-  
-  .menu-content {
-    width: 100%;
-    height: auto;
-    max-height: none;
+  .category-tab {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
   }
   
   .menu-items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.2rem;
+    padding: 2rem 0;
     overflow: visible;
+    padding: 1.5rem;
   }
   
   .menu-item {
@@ -1363,11 +1287,15 @@ onUnmounted(() => {
   .menu-items-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .menu-layout .container {
+    padding: 0 12px;
   }
   
   .content-header {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
   
   .category-title {
