@@ -83,6 +83,23 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+/* Navigation Bar - Sticky only on mobile */
+.nav-bar {
+  transition: all 0.3s ease;
+}
+
+/* Sticky navigation only on mobile and tablet devices */
+@media (max-width: 1024px) {
+  .nav-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    background: rgba(51, 33, 29, 0.98) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
 /* Clean Dropdown Styling */
 .custom-dropdown {
   background: rgba(255, 255, 255, 0.95) !important;
@@ -96,11 +113,13 @@ onMounted(async () => {
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .custom-dropdown.show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .custom-dropdown-item {

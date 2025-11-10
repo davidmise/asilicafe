@@ -6,7 +6,7 @@
         <div class="carousel-item active">
           <img class="w-100" src="/img/carousel-1.jpg" alt="Image">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <h2 class="text-primary font-weight-medium m-0">Authentic Zanzibari Coffee</h2>
+            <h2 class="text-primary font-weight-medium m-0">Authentic Swahili Coffee</h2>
             <h1 class="display-2 text-white m-0">ASILI CAFE</h1>
             <h2 class="text-white m-0">* ZANZIBAR'S FAVORITE SINCE 2010 *</h2>
           </div>

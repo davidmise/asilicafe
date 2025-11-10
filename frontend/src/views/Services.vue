@@ -1,21 +1,17 @@
 <template>
   <div class="services-page hero-page">
     <!-- Page Header Start -->
-    <PageHeader 
-      title="Our Services" 
-      breadcrumb="Services" 
-      background-image="bg.jpg" 
-    />
+    <PageHeader title="Our Services" breadcrumb="Services" background-image="bg.jpg" />
     <!-- Page Header End -->
-    
+
     <!-- Services Section Component -->
     <ServicesSection />
   </div>
 </template>
 
 <script setup>
-import ServicesSection from '@/components/home/ServicesSection.vue'
-import PageHeader from '@/components/layout/PageHeader.vue'
+import ServicesSection from "@/components/home/ServicesSection.vue";
+import PageHeader from "@/components/layout/PageHeader.vue";
 </script>
 
 <style scoped>

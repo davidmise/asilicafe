@@ -172,98 +172,123 @@ let scrollTriggerInstances = []
 
 // Define categories with descriptions
 const categories = ref([
-  { id: 'soft-drinks', name: 'Soft Drinks', description: 'Refreshing Zanzibari beverages' },
-  { id: 'smoothies', name: 'Smoothies', description: 'Fresh tropical island blends' },
-  { id: 'milkshakes', name: 'Milk Shakes', description: 'Rich creamy delights' },
-  { id: 'burgers', name: 'Burgers', description: 'Hearty & satisfying' },
-  { id: 'sandwiches', name: 'Sandwiches', description: 'Made with local spices' },
-  { id: 'pizza', name: 'Pizza', description: 'Freshly baked favorites' },
-  { id: 'breakfast', name: 'Breakfast', description: 'Traditional island meals' },
-  { id: 'soup', name: 'Soup', description: 'Comforting coastal recipes' },
-  { id: 'main-fish', name: 'Main Dishes', description: 'Zanzibar specialties' }
+  { id: 'soft-drinks', name: 'Beverages', description: 'Refreshing Swahili drinks' },
+  { id: 'smoothies', name: 'Smoothies & Shakes', description: 'Fresh tropical blends' },
+  { id: 'breakfast', name: 'Breakfast', description: 'Traditional morning delights' },
+  { id: 'burgers-sandwiches', name: 'Burgers & Sandwiches', description: 'Hearty & satisfying' },
+  { id: 'pizza', name: 'Pizza', description: 'Wood-fired perfection' },
+  { id: 'soup', name: 'Soups', description: 'Comforting coastal recipes' },
+  { id: 'seafood', name: 'Seafood', description: 'Fresh from the Indian Ocean' },
+  { id: 'main-dishes', name: 'Main Dishes', description: 'Swahili specialties' },
+  { id: 'sides', name: 'Sides & Extras', description: 'Perfect accompaniments' }
 ])
 
 // Set up the menu items based on the provided menu
 const menuData = ref([
-  // Soft Drinks
-  { id: 1, name: 'Fresh Juice', price: 'Glass', category: 'soft-drinks', description: 'Fresh tropical fruits pressed daily, featuring local Zanzibari favorites', image: '/img/menu-1.jpg' },
-  { id: 2, name: 'Asili Juice', price: 'Glass', category: 'soft-drinks', description: 'Our signature blend of exotic island fruits sourced from local Zanzibar markets', image: '/img/menu-2.jpg' },
-  { id: 3, name: 'Asili Milk Tea', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Traditional spiced milk tea with our secret blend of Zanzibar spices', variations: ['Small', 'Big'], image: '/img/menu-3.jpg' },
-  { id: 4, name: 'Dawa Tea', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Traditional Zanzibari healing tea with honey, ginger, and lemon', variations: ['Small', 'Big'], image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=300&fit=crop' },
-  { id: 5, name: 'Black Tea', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Premium Ceylon tea served the Zanzibari way with cardamom', variations: ['Small', 'Big'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=300&fit=crop' },
-  { id: 6, name: 'Soda', price: 'BTL', category: 'soft-drinks', description: 'Refreshing carbonated beverages perfect for the island heat', image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=500&h=300&fit=crop' },
-  { id: 7, name: 'Water', price: 'BTL', category: 'soft-drinks', description: 'Pure filtered water sourced locally in Zanzibar', variations: ['1.5 ltrs', '0.5 ltrs'], image: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&h=300&fit=crop' },
+  // BEVERAGES (Soft Drinks & Hot Drinks)
+  { id: 1, name: 'Fresh Juice', price: 'Glass', category: 'soft-drinks', description: 'Freshly pressed tropical fruits - mango, passion fruit, orange, or pineapple', image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500&h=300&fit=crop' },
+  { id: 2, name: 'Asili Signature Juice', price: 'Glass', category: 'soft-drinks', description: 'Our special blend of exotic Zanzibar fruits with a hint of ginger', image: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=500&h=300&fit=crop' },
+  { id: 3, name: 'Asili Milk Tea (Chai)', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Traditional spiced milk tea with our secret blend of Zanzibar spices', variations: ['Small', 'Large'], image: 'https://images.unsplash.com/photo-1597318181274-838657f691f0?w=500&h=300&fit=crop' },
+  { id: 4, name: 'Dawa Tea', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Traditional Swahili healing tea with honey, ginger, and fresh lemon', variations: ['Small', 'Large'], image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&h=300&fit=crop' },
+  { id: 5, name: 'Black Tea (Chai Rangi)', price: '2,000 / 4,000', category: 'soft-drinks', description: 'Premium Ceylon tea served with cardamom, Zanzibar style', variations: ['Small', 'Large'], image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=300&fit=crop' },
+  { id: 6, name: 'Tangawizi (Ginger Tea)', price: '2,500 / 5,000', category: 'soft-drinks', description: 'Warming ginger tea with honey and lemon, perfect for digestion', variations: ['Small', 'Large'], image: 'https://images.unsplash.com/photo-1563822249366-c98e01df7d33?w=500&h=300&fit=crop' },
+  { id: 7, name: 'Zanzibar Coffee', price: '3,000 / 6,000', category: 'soft-drinks', description: 'Locally roasted coffee beans, served Arabic style with spices', variations: ['Small', 'Large'], image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&h=300&fit=crop' },
+  { id: 8, name: 'Soda (Locally Bottled)', price: '2,000', category: 'soft-drinks', description: 'Choice of Coca-Cola, Sprite, Fanta, or Stoney Tangawizi', image: 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=500&h=300&fit=crop' },
+  { id: 9, name: 'Mineral Water', price: '1,500 / 2,500', category: 'soft-drinks', description: 'Pure filtered water sourced locally', variations: ['0.5L', '1.5L'], image: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&h=300&fit=crop' },
+  { id: 10, name: 'Madafu (Coconut Water)', price: '3,000', category: 'soft-drinks', description: 'Fresh young coconut water straight from the palm', image: 'https://images.unsplash.com/photo-1585636350143-ea5a3c1b6094?w=500&h=300&fit=crop' },
   
-  // Smoothies
-  { id: 8, name: 'Mango Smoothie', price: 'Glass', category: 'smoothies', description: 'Sweet tropical mango from Zanzibar orchards blended to perfection', image: '/img/menu-1.jpg' },
-  { id: 9, name: 'Avocado Smoothie', price: 'Glass', category: 'smoothies', description: 'Creamy avocado smoothie, a local island favorite packed with nutrients', image: '/img/menu-2.jpg' },
-  { id: 10, name: 'Banana Smoothie', price: 'Glass', category: 'smoothies', description: 'Rich banana smoothie made from locally grown sweet island bananas', image: '/img/menu-3.jpg' },
+  // SMOOTHIES & MILKSHAKES
+  { id: 11, name: 'Mango Smoothie', price: '6,000', category: 'smoothies', description: 'Sweet tropical mango from Zanzibar orchards blended to perfection', image: 'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=500&h=300&fit=crop' },
+  { id: 12, name: 'Avocado Smoothie (Parachichi)', price: '7,000', category: 'smoothies', description: 'Creamy avocado smoothie with honey, a local island favorite', image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=500&h=300&fit=crop' },
+  { id: 13, name: 'Banana Smoothie', price: '5,000', category: 'smoothies', description: 'Rich smoothie made from sweet island bananas', image: 'https://images.unsplash.com/photo-1638176066666-ffb2f013c7dd?w=500&h=300&fit=crop' },
+  { id: 14, name: 'Papaya Smoothie (Papai)', price: '6,000', category: 'smoothies', description: 'Refreshing papaya blend with lime and mint', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=300&fit=crop' },
+  { id: 15, name: 'Mixed Fruit Smoothie', price: '7,500', category: 'smoothies', description: 'Tropical medley of mango, passion fruit, pineapple, and banana', image: 'https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=500&h=300&fit=crop' },
+  { id: 16, name: 'Strawberry Milkshake', price: '7,000', category: 'smoothies', description: 'Fresh strawberries blended with rich vanilla ice cream', image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&h=300&fit=crop' },
+  { id: 17, name: 'Chocolate Milkshake', price: '7,000', category: 'smoothies', description: 'Rich chocolate milkshake with premium cocoa', image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&h=300&fit=crop' },
+  { id: 18, name: 'Vanilla Milkshake', price: '7,000', category: 'smoothies', description: 'Classic vanilla milkshake with Zanzibar vanilla', image: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=500&h=300&fit=crop' },
+  { id: 19, name: 'Date Shake (Tende)', price: '8,000', category: 'smoothies', description: 'Traditional Swahili date shake with milk and honey', image: 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=500&h=300&fit=crop' },
+  { id: 20, name: 'Iced Caramel Macchiato', price: '8,500', category: 'smoothies', description: 'Cold brew coffee with caramel and milk foam', image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=500&h=300&fit=crop' },
+  { id: 21, name: 'Affogato', price: '9,000', category: 'smoothies', description: 'Vanilla ice cream drowned in Zanzibar espresso', image: 'https://images.unsplash.com/photo-1612201142855-bda0a97162d9?w=500&h=300&fit=crop' },
   
-  // Milkshakes
-  { id: 11, name: 'Iced Caramel Macchiato', price: 'Cup', category: 'milkshakes', description: 'Rich coffee and caramel blend with our signature Zanzibari coffee', image: '/img/menu-1.jpg' },
-  { id: 12, name: 'Affogato', price: 'Cup', category: 'milkshakes', description: 'Italian-style dessert with locally roasted Zanzibar espresso over vanilla ice cream', image: '/img/menu-2.jpg' },
-  { id: 13, name: 'Strawberry Milkshake', price: 'Glass', category: 'milkshakes', description: 'Fresh strawberries blended with rich local milk', image: '/img/menu-3.jpg' },
-  { id: 14, name: 'Banana Milkshake', price: 'Glass', category: 'milkshakes', description: 'Creamy shake made with sweet Zanzibar bananas', image: '/img/menu-1.jpg' },
-  { id: 15, name: 'Vanilla Milkshake', price: 'Glass', category: 'milkshakes', description: 'Classic vanilla milkshake with premium Zanzibar vanilla', image: '/img/menu-2.jpg' },
-  { id: 16, name: 'Chocolate Milkshake', price: 'Glass', category: 'milkshakes', description: 'Rich chocolate milkshake with local cocoa', image: '/img/menu-3.jpg' },
-  { id: 17, name: 'Date Shake (Tende)', price: 'Glass', category: 'milkshakes', description: 'Traditional Zanzibari date shake with natural island sweetness', image: '/img/menu-1.jpg' },
+  // BREAKFAST
+  { id: 22, name: 'Spanish Omelette', price: '5,000', category: 'breakfast', description: 'Fluffy omelette with tomatoes, onions, peppers, and cheese', image: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=500&h=300&fit=crop' },
+  { id: 23, name: 'Plain Omelette (Mayai)', price: '3,000', category: 'breakfast', description: 'Simple fluffy omelette, cooked to perfection', image: 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=500&h=300&fit=crop' },
+  { id: 24, name: 'Andazi Mafuta', price: '500', category: 'breakfast', description: 'Traditional Swahili fried dough, sweet and fluffy', image: 'https://images.unsplash.com/photo-1626788182606-4f1b6d5dc7b6?w=500&h=300&fit=crop' },
+  { id: 25, name: 'Andazi Kavu', price: '1,000', category: 'breakfast', description: 'Crispy fried dough triangles, perfect with chai', image: 'https://images.unsplash.com/photo-1626788182606-4f1b6d5dc7b6?w=500&h=300&fit=crop' },
+  { id: 26, name: 'Chapati', price: '1,500', category: 'breakfast', description: 'Soft flatbread, perfect with curry or tea', image: 'https://images.unsplash.com/photo-1626764780463-0c3ed8209daf?w=500&h=300&fit=crop' },
+  { id: 27, name: 'Boflo (Vitumbua)', price: '1,500', category: 'breakfast', description: 'Sweet rice cakes made with coconut milk', image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=500&h=300&fit=crop' },
+  { id: 28, name: 'Mkate wa Kumimina', price: '2,000', category: 'breakfast', description: 'Zanzibar pizza - thin crepe filled with minced meat and egg', image: 'https://images.unsplash.com/photo-1628191011227-c9d1e3f8e928?w=500&h=300&fit=crop' },
+  { id: 29, name: 'Breakfast Combo', price: '8,000', category: 'breakfast', description: 'Omelette, chapati, andazi, and chai tea', image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&h=300&fit=crop' },
   
-  // Burgers
-  { id: 18, name: 'Beef Burger', price: '10,000', category: 'burgers', description: 'Juicy beef patty with fresh toppings', image: '/img/menu-2.jpg' },
-  { id: 19, name: 'Chicken Burger', price: '10,000', category: 'burgers', description: 'Tender chicken fillet with crisp vegetables', image: '/img/menu-3.jpg' },
-  { id: 20, name: 'Vegetable Burger', price: '10,000', category: 'burgers', description: 'Plant-based patty with fresh veggies', image: '/img/menu-1.jpg' },
+  // BURGERS & SANDWICHES
+  { id: 30, name: 'Asili Beef Burger', price: '12,000', category: 'burgers-sandwiches', description: 'Juicy beef patty with cheese, lettuce, tomato, onion, and special sauce', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=300&fit=crop' },
+  { id: 31, name: 'Chicken Burger', price: '11,000', category: 'burgers-sandwiches', description: 'Grilled chicken breast with fresh toppings and garlic aioli', image: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=500&h=300&fit=crop' },
+  { id: 32, name: 'Fish Burger', price: '12,000', category: 'burgers-sandwiches', description: 'Fresh fish fillet with tartar sauce and crisp vegetables', image: 'https://images.unsplash.com/photo-1625869016774-3afbe48eb7c8?w=500&h=300&fit=crop' },
+  { id: 33, name: 'Vegetable Burger', price: '10,000', category: 'burgers-sandwiches', description: 'Plant-based patty with avocado and fresh veggies', image: 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=500&h=300&fit=crop' },
+  { id: 34, name: 'Chicken Sandwich', price: '10,000', category: 'burgers-sandwiches', description: 'Grilled chicken with fresh vegetables on toasted bread', image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&h=300&fit=crop' },
+  { id: 35, name: 'Club Sandwich', price: '11,000', category: 'burgers-sandwiches', description: 'Triple-decker with chicken, bacon, egg, lettuce, and tomato', image: 'https://images.unsplash.com/photo-1567234669003-dce7a7a88821?w=500&h=300&fit=crop' },
+  { id: 36, name: 'Fish Sandwich', price: '11,000', category: 'burgers-sandwiches', description: 'Flaky fish fillet with tartar sauce and coleslaw', image: 'https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?w=500&h=300&fit=crop' },
   
-  // Sandwiches
-  { id: 21, name: 'Chicken Sandwich', price: '10,000', category: 'sandwiches', description: 'Grilled chicken with fresh bread', image: '/img/menu-2.jpg' },
-  { id: 22, name: 'Fish Sandwich', price: '10,000', category: 'sandwiches', description: 'Flaky fish fillet with crisp vegetables', image: '/img/menu-3.jpg' },
+  // PIZZA
+  { id: 37, name: 'Margherita Pizza', price: '15,000', category: 'pizza', description: 'Classic pizza with fresh mozzarella, tomato sauce, and basil', image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&h=300&fit=crop' },
+  { id: 38, name: 'Vegetable Pizza', price: '18,000', category: 'pizza', description: 'Bell peppers, mushrooms, onions, olives, and mozzarella', image: 'https://images.unsplash.com/photo-1511689660979-10d2b1aada49?w=500&h=300&fit=crop' },
+  { id: 39, name: 'Pepperoni Pizza', price: '19,000', category: 'pizza', description: 'Classic pepperoni with mozzarella cheese', image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&h=300&fit=crop' },
+  { id: 40, name: 'Chicken Pizza', price: '20,000', category: 'pizza', description: 'Grilled chicken pieces with onions and mozzarella', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=300&fit=crop' },
+  { id: 41, name: 'BBQ Chicken Pizza', price: '22,000', category: 'pizza', description: 'BBQ sauce, grilled chicken, olives, and green peppers', image: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=500&h=300&fit=crop' },
+  { id: 42, name: 'Beef Pizza', price: '21,000', category: 'pizza', description: 'Seasoned minced beef with onions and mozzarella', image: 'https://images.unsplash.com/photo-1590534247854-e973a3903f94?w=500&h=300&fit=crop' },
+  { id: 43, name: 'Seafood Pizza', price: '25,000', category: 'pizza', description: 'Prawns, calamari, and fish with garlic butter', image: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96c47?w=500&h=300&fit=crop' },
+  { id: 44, name: 'Asili Special Pizza', price: '23,000', category: 'pizza', description: 'Our signature with pineapple, dates, banana, and cheese - a Zanzibar twist!', image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=300&fit=crop' },
+  { id: 45, name: 'Hawaiian Pizza', price: '19,000', category: 'pizza', description: 'Ham and pineapple with mozzarella', image: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=500&h=300&fit=crop' },
   
-  // Pizza
-  { id: 23, name: 'Margherita Pizza', price: '15,000', category: 'pizza', description: 'Classic pizza with mozzarella and oregano', image: '/img/menu-1.jpg' },
-  { id: 24, name: 'Vegetable Pizza', price: '17,000', category: 'pizza', description: 'Assorted fresh vegetables with mozzarella', image: '/img/menu-2.jpg' },
-  { id: 25, name: 'Sausage Pizza', price: '17,000', category: 'pizza', description: 'Choice of sausage with mozzarella', image: '/img/menu-3.jpg' },
-  { id: 26, name: 'Chicken Pizza', price: '20,000', category: 'pizza', description: 'Tender chicken pieces with mozzarella', image: '/img/menu-1.jpg' },
-  { id: 27, name: 'Beef Pizza', price: '20,000', category: 'pizza', description: 'Minced meat with mozzarella', image: '/img/menu-2.jpg' },
-  { id: 28, name: 'Seafood Pizza', price: '25,000', category: 'pizza', description: 'Assorted seafood with mozzarella', image: '/img/menu-3.jpg' },
-  { id: 29, name: 'BBQ Pizza', price: '20,000', category: 'pizza', description: 'Chicken with olive and green pepper', image: '/img/menu-1.jpg' },
-  { id: 30, name: 'Asili Pizza', price: '20,000', category: 'pizza', description: 'Our signature pizza with pineapple, banana, and dates', image: '/img/menu-2.jpg' },
+  // SOUPS
+  { id: 46, name: 'Chicken Soup (Supu ya Kuku)', price: '7,000', category: 'soup', description: 'Comforting chicken broth with vegetables and spices', image: 'https://images.unsplash.com/photo-1581783342648-90be45d49c86?w=500&h=300&fit=crop' },
+  { id: 47, name: 'Beef Soup (Supu ya Ng\'ombe)', price: '7,500', category: 'soup', description: 'Hearty beef broth with traditional Swahili spices', image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&h=300&fit=crop' },
+  { id: 48, name: 'Octopus Soup (Supu ya Pweza)', price: '10,000', category: 'soup', description: 'Tender octopus in rich coconut broth', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=500&h=300&fit=crop' },
+  { id: 49, name: 'Tuna Soup (Supu ya Jodari)', price: '8,000', category: 'soup', description: 'Fresh tuna in flavorful tomato broth', image: 'https://images.unsplash.com/photo-1598511726623-d2e9996892f0?w=500&h=300&fit=crop' },
+  { id: 50, name: 'Vegetable Soup (Supu ya Mboga)', price: '6,000', category: 'soup', description: 'Fresh garden vegetables in light broth', image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&h=300&fit=crop' },
+  { id: 51, name: 'Mixed Seafood Soup', price: '15,000', category: 'soup', description: 'Rich medley of prawns, fish, calamari, and octopus', image: 'https://images.unsplash.com/photo-1559847844-d7e97cd00310?w=500&h=300&fit=crop' },
+  { id: 52, name: 'Muhogo na Nyama (Cassava Soup)', price: '10,000', category: 'soup', description: 'Traditional cassava soup with beef or chicken', variations: ['Beef', 'Chicken'], image: 'https://images.unsplash.com/photo-1603046891726-36bfd957e0fa?w=500&h=300&fit=crop' },
+  { id: 53, name: 'Changu Soup', price: '25,000', category: 'soup', description: 'Premium emperor fish soup, a Zanzibar delicacy', image: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=500&h=300&fit=crop' },
   
-  // Breakfast
-  { id: 31, name: 'Spanish Omelette', price: '3,000', category: 'breakfast', description: 'Fluffy omelette with vegetables', image: '/img/menu-3.jpg' },
-  { id: 32, name: 'Plain Omelette', price: '2,000', category: 'breakfast', description: 'Simple and delicious', image: '/img/menu-1.jpg' },
-  { id: 33, name: 'Andazi Mafuta', price: '500', category: 'breakfast', description: 'Traditional fried dough', image: '/img/menu-2.jpg' },
-  { id: 34, name: 'Andazi Kavu', price: '1,000', category: 'breakfast', description: 'Crispy fried dough', image: '/img/menu-3.jpg' },
-  { id: 35, name: 'Chapati', price: '1,000', category: 'breakfast', description: 'Flatbread perfect with any meal', image: '/img/menu-1.jpg' },
-  { id: 36, name: 'Boflo', price: '1,000', category: 'breakfast', description: 'Local breakfast favorite', image: '/img/menu-2.jpg' },
+  // SEAFOOD
+  { id: 54, name: 'Grilled Tuna (Jodari)', price: '18,000', category: 'seafood', description: 'Fresh yellowfin tuna grilled with lemon and herbs', image: 'https://images.unsplash.com/photo-1580959375944-0d0b0f21f7d8?w=500&h=300&fit=crop' },
+  { id: 55, name: 'Kingfish Grilled/Curry (Nguru)', price: '20,000', category: 'seafood', description: 'Zanzibar kingfish - choose grilled or in coconut curry', variations: ['Grilled', 'Curry'], image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&h=300&fit=crop' },
+  { id: 56, name: 'Octopus Grilled/Curry (Pweza)', price: '22,000', category: 'seafood', description: 'Tender octopus grilled or in spicy Swahili curry', variations: ['Grilled', 'Curry'], image: 'https://images.unsplash.com/photo-1559737558-2f5a555b0be8?w=500&h=300&fit=crop' },
+  { id: 57, name: 'Calamari Grilled/Curry (Ngisi)', price: '18,000', category: 'seafood', description: 'Fresh squid prepared your way', variations: ['Grilled', 'Curry'], image: 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=500&h=300&fit=crop' },
+  { id: 58, name: 'Prawns Grilled/Curry (Kamba)', price: '25,000', category: 'seafood', description: 'Jumbo prawns from the Indian Ocean', variations: ['Grilled', 'Curry'], image: 'https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=500&h=300&fit=crop' },
+  { id: 59, name: 'Lobster Grilled/Curry (Kamba Kokolimba)', price: '45,000', category: 'seafood', description: 'Fresh lobster cooked to perfection', variations: ['Grilled', 'Curry'], image: 'https://images.unsplash.com/photo-1615274744853-cd8b8460f951?w=500&h=300&fit=crop' },
+  { id: 60, name: 'Grilled Changu (Whole Fish)', price: '35,000', category: 'seafood', description: 'Whole emperor fish grilled with Swahili spices', image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500&h=300&fit=crop' },
+  { id: 61, name: 'Mixed Seafood Curry', price: '35,000', category: 'seafood', description: 'Assorted seafood in rich coconut curry sauce', image: 'https://images.unsplash.com/photo-1591255221146-9e8fbb86f03d?w=500&h=300&fit=crop' },
+  { id: 62, name: 'Seafood Platter - Half', price: '40,000', category: 'seafood', description: 'Selection of grilled prawns, fish, calamari, and lobster', image: 'https://images.unsplash.com/photo-1559847844-d7e97cd00310?w=500&h=300&fit=crop' },
+  { id: 63, name: 'Seafood Platter - Full', price: '65,000', category: 'seafood', description: 'Grand feast of mixed seafood for sharing', image: 'https://images.unsplash.com/photo-1559847844-d7e97cd00310?w=500&h=300&fit=crop' },
+  { id: 64, name: 'Fish Fingers', price: '12,000', category: 'seafood', description: 'Crispy fried fish strips with tartar sauce', image: 'https://images.unsplash.com/photo-1579717001958-ef9cc8d8a562?w=500&h=300&fit=crop' },
   
-  // Soup
-  { id: 37, name: 'Octopus Soup', price: '7,000', category: 'soup', description: 'Hearty octopus broth', image: '/img/menu-3.jpg' },
-  { id: 38, name: 'Chicken Soup', price: '7,000', category: 'soup', description: 'Comforting chicken broth', image: '/img/menu-1.jpg' },
-  { id: 39, name: 'Mixed Seafood Soup', price: '15,000', category: 'soup', description: 'Rich seafood medley', image: '/img/menu-2.jpg' },
-  { id: 40, name: 'Mohensho Beef/Chicken', price: '10,000', category: 'soup', description: 'Traditional soup with your choice of meat', image: '/img/menu-3.jpg' },
-  { id: 41, name: 'Changu Soup', price: '20,000', category: 'soup', description: 'Premium fish soup', image: '/img/menu-1.jpg' },
-  { id: 42, name: 'Tuna Soup', price: '7,000', category: 'soup', description: 'Flavorful tuna broth', image: '/img/menu-2.jpg' },
-  { id: 43, name: 'Beef Soup', price: '7,000', category: 'soup', description: 'Hearty beef broth', image: '/img/menu-3.jpg' },
-  { id: 44, name: 'Vegetable Soup', price: '7,000', category: 'soup', description: 'Fresh vegetable medley', image: '/img/menu-1.jpg' },
+  // MAIN DISHES
+  { id: 65, name: 'Chicken Biryani', price: '15,000', category: 'main-dishes', description: 'Fragrant basmati rice with spiced chicken, Zanzibar style', image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&h=300&fit=crop' },
+  { id: 66, name: 'Beef Biryani', price: '16,000', category: 'main-dishes', description: 'Tender beef cooked with aromatic rice and spices', image: 'https://images.unsplash.com/photo-1642821373181-696a54913e93?w=500&h=300&fit=crop' },
+  { id: 67, name: 'Pilau (Chicken/Beef)', price: '12,000', category: 'main-dishes', description: 'Traditional spiced rice with your choice of meat', variations: ['Chicken', 'Beef'], image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&h=300&fit=crop' },
+  { id: 68, name: 'Biriyani Rice (Plain)', price: '8,000', category: 'main-dishes', description: 'Saffron-infused basmati rice with spices', image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&h=300&fit=crop' },
+  { id: 69, name: 'Butter Chicken', price: '16,000', category: 'main-dishes', description: 'Creamy tomato curry with tender chicken pieces', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&h=300&fit=crop' },
+  { id: 70, name: 'Beef Curry (Mchuzi wa Ng\'ombe)', price: '15,000', category: 'main-dishes', description: 'Slow-cooked beef in traditional Swahili spices', image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&h=300&fit=crop' },
+  { id: 71, name: 'Grilled Chicken (Full/Half)', price: '18,000 / 10,000', category: 'main-dishes', description: 'Marinated chicken grilled over charcoal', variations: ['Full', 'Half'], image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=500&h=300&fit=crop' },
+  { id: 72, name: 'Manchurian Chicken', price: '16,000', category: 'main-dishes', description: 'Indo-Chinese style chicken in savory sauce', image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500&h=300&fit=crop' },
+  { id: 73, name: 'Manchurian Curry', price: '15,000', category: 'main-dishes', description: 'Asian-inspired curry with your choice', variations: ['Vegetable', 'Fish', 'Chicken'], image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&h=300&fit=crop' },
+  { id: 74, name: 'Wali wa Nazi (Coconut Rice)', price: '10,000', category: 'main-dishes', description: 'Rice cooked in coconut milk with spices', image: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=500&h=300&fit=crop' },
+  { id: 75, name: 'Maandazi na Maharage', price: '5,000', category: 'main-dishes', description: 'Traditional coconut doughnuts with spiced beans', image: 'https://images.unsplash.com/photo-1626788182606-4f1b6d5dc7b6?w=500&h=300&fit=crop' },
+  { id: 76, name: 'Vegetable Biryani', price: '12,000', category: 'main-dishes', description: 'Mixed vegetables in fragrant spiced rice', image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&h=300&fit=crop' },
+  { id: 77, name: 'Pweza wa Nazi', price: '25,000', category: 'main-dishes', description: 'Octopus cooked in rich coconut sauce', image: 'https://images.unsplash.com/photo-1559737558-2f5a555b0be8?w=500&h=300&fit=crop' },
   
-  // Main Fish
-  { id: 45, name: 'Grilled Tuna', price: '15,000', category: 'main-fish', description: 'Fresh tuna perfectly grilled', image: '/img/menu-2.jpg' },
-  { id: 46, name: 'Kingfish Grilled/Curry', price: '15,000', category: 'main-fish', description: 'Your choice of preparation', variations: ['Grilled', 'Curry'], image: '/img/menu-3.jpg' },
-  { id: 47, name: 'Octopus Grilled/Curry', price: '15,000', category: 'main-fish', description: 'Tender octopus prepared to your liking', variations: ['Grilled', 'Curry'], image: '/img/menu-1.jpg' },
-  { id: 48, name: 'Calamari Grilled/Curry', price: '15,000', category: 'main-fish', description: 'Squid prepared as you prefer', variations: ['Grilled', 'Curry'], image: '/img/menu-2.jpg' },
-  { id: 49, name: 'Manchurian Curry', price: '15,000', category: 'main-fish', description: 'Asian-inspired curry', variations: ['Vegetable', 'Fish', 'Chicken'], image: '/img/menu-3.jpg' },
-  { id: 50, name: 'Manchurian Chicken', price: '15,000', category: 'main-fish', description: 'Chicken in Manchurian sauce', image: '/img/menu-1.jpg' },
-  { id: 51, name: 'Beef Curry', price: '15,000', category: 'main-fish', description: 'Tender beef in rich curry', image: '/img/menu-2.jpg' },
-  { id: 52, name: 'Mix Sea Food Curry', price: '30,000', category: 'main-fish', description: 'Assorted seafood in curry sauce', image: '/img/menu-3.jpg' },
-  { id: 53, name: 'Butter Chicken', price: '15,000', category: 'main-fish', description: 'Creamy butter chicken', image: '/img/menu-1.jpg' },
-  { id: 54, name: 'Grilled Chicken', price: '18,000', category: 'main-fish', description: 'Perfectly grilled chicken', image: '/img/menu-2.jpg' },
-  { id: 55, name: 'Grilled Changu (Whole Fish)', price: '28,000', category: 'main-fish', description: 'Whole fish grilled to perfection', image: '/img/menu-3.jpg' },
-  { id: 56, name: 'Britan', price: '13,000', category: 'main-fish', description: 'Traditional dish (For Order)', image: '/img/menu-1.jpg' },
-  { id: 57, name: 'Pilau', price: '10,000', category: 'main-fish', description: 'Spiced rice dish (For Order)', image: '/img/menu-2.jpg' },
-  { id: 58, name: 'Chinese Rice', price: '10,000', category: 'main-fish', description: 'Asian-style fried rice (For Order)', image: '/img/menu-3.jpg' },
-  { id: 59, name: 'Seafood Plata 0.5', price: '35,000', category: 'main-fish', description: 'Half portion seafood platter', image: '/img/menu-1.jpg' },
-  { id: 60, name: 'Seafood Plata Full', price: '50,000', category: 'main-fish', description: 'Full seafood platter', image: '/img/menu-2.jpg' },
-  { id: 61, name: 'Ugali, Rice, French Fries', price: '5,000', category: 'main-fish', description: 'Side dish selection', image: '/img/menu-3.jpg' },
-  { id: 62, name: 'Vegetable with Octopus', price: '20,000', category: 'main-fish', description: 'Fresh vegetables with tender octopus', image: '/img/menu-1.jpg' }
+  // SIDES & EXTRAS
+  { id: 78, name: 'Ugali', price: '3,000', category: 'sides', description: 'Traditional maize meal, perfect with curry', image: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=500&h=300&fit=crop' },
+  { id: 79, name: 'White Rice', price: '4,000', category: 'sides', description: 'Steamed basmati rice', image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&h=300&fit=crop' },
+  { id: 80, name: 'French Fries (Chipsi)', price: '5,000', category: 'sides', description: 'Crispy golden fries with ketchup', image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&h=300&fit=crop' },
+  { id: 81, name: 'Masala Chips', price: '6,000', category: 'sides', description: 'Fries tossed with Swahili spices', image: 'https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=500&h=300&fit=crop' },
+  { id: 82, name: 'Kachumbari Salad', price: '4,000', category: 'sides', description: 'Fresh tomato, onion, and cucumber salad', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=300&fit=crop' },
+  { id: 83, name: 'Coconut Chutney', price: '2,500', category: 'sides', description: 'Fresh coconut relish with spices', image: 'https://images.unsplash.com/photo-1596040033229-a0b3b83ded90?w=500&h=300&fit=crop' },
+  { id: 84, name: 'Garlic Naan', price: '3,500', category: 'sides', description: 'Oven-baked flatbread with garlic butter', image: 'https://images.unsplash.com/photo-1617343267882-ce20369c2145?w=500&h=300&fit=crop' },
+  { id: 85, name: 'Mboga (Vegetable Side)', price: '4,000', category: 'sides', description: 'Sautéed mixed vegetables', image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&h=300&fit=crop' },
+  { id: 86, name: 'Samosas (3 pcs)', price: '3,000', category: 'sides', description: 'Crispy pastry triangles filled with spiced vegetables or meat', variations: ['Vegetable', 'Meat'], image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&h=300&fit=crop' },
+  { id: 87, name: 'Bhajia (Pakora)', price: '4,000', category: 'sides', description: 'Spiced vegetable fritters in chickpea batter', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&h=300&fit=crop' }
 ])
 
 // Computed properties
@@ -668,22 +693,31 @@ onUnmounted(() => {
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
-  scrollbar-color: var(--soft-gold) var(--dark-brown);
+  scrollbar-color: rgba(218, 159, 91, 0.5) rgba(44, 24, 16, 0.3);
   -webkit-overflow-scrolling: touch;
   padding: 0.5rem 0;
 }
 
+/* Modern elegant scrollbar for webkit browsers */
 .nav-wrapper::-webkit-scrollbar {
-  height: 4px;
+  height: 6px;
 }
 
 .nav-wrapper::-webkit-scrollbar-track {
-  background: var(--dark-brown);
+  background: rgba(44, 24, 16, 0.2);
+  border-radius: 10px;
+  margin: 0 1rem;
 }
 
 .nav-wrapper::-webkit-scrollbar-thumb {
-  background: var(--soft-gold);
-  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(218, 159, 91, 0.6), rgba(161, 110, 66, 0.8));
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--soft-gold), var(--secondary-brown));
+  box-shadow: 0 0 6px rgba(218, 159, 91, 0.5);
 }
 
 .category-tab {
@@ -700,6 +734,11 @@ onUnmounted(() => {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  outline: none; /* Remove browser focus outline */
+}
+
+.category-tab:focus {
+  outline: none; /* Ensure no outline on focus */
 }
 
 .category-tab::before {
@@ -1081,9 +1120,9 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(44, 24, 16, 0.9));
+  background: linear-gradient(to top, rgba(44, 24, 16, 0.95) 0%, rgba(44, 24, 16, 0.85) 50%, transparent 100%);
   color: var(--white);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
 }
 
 .modal-title {
@@ -1091,6 +1130,10 @@ onUnmounted(() => {
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+               0 0 20px rgba(0, 0, 0, 0.6);
+  line-height: 1.2;
 }
 
 .modal-overlay-content .modal-price {
@@ -1102,11 +1145,13 @@ onUnmounted(() => {
 .modal-overlay-content .currency {
   font-size: 1rem;
   opacity: 0.9;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .modal-overlay-content .amount {
   font-size: 2rem;
   font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .modal-body {

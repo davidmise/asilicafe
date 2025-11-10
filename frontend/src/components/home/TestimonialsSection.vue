@@ -139,7 +139,7 @@ testimonials.value = [
     id: 3,
     name: 'Fatma Mrisho',
     profession: 'Local Business Owner',
-    message: 'I bring all my business meetings to both branches. The ambiance is professional yet relaxed, and their Zanzibari spiced coffee is the best on the island. Highly recommend their traditional dishes too!',
+    message: 'I bring all my business meetings to both branches. The ambiance is professional yet relaxed, and their Swahili spiced coffee is the best on the island. Highly recommend their traditional dishes too!',
     image: '/img/testimonial-3.jpg',
     rating: 5
   },

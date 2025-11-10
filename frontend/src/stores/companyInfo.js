@@ -7,9 +7,9 @@ export const useCompanyInfoStore = defineStore('companyInfo', {
   state: () => ({
     companyInfo: {
       name: 'Asili Cafe',
-      about_subtitle: 'Authentic Zanzibari Coffee & Cuisine',
+      about_subtitle: 'Authentic Swahili Coffee & Cuisine',
       about_description: 'Experience the rich flavors of Zanzibar at Asili Cafe. We serve traditional spiced coffee and local delicacies in a warm, welcoming atmosphere. Located opposite Karume Institute and near Mmoja Hospital, we\'re your perfect study spot and meeting place.',
-      vision_description: 'To become Zanzibar\'s premier destination for authentic local coffee and cuisine, fostering community connections while preserving traditional flavors and hospitality.',
+      vision_description: 'To become Zanzibar\'s premier destination for authentic Swahili coffee and cuisine, fostering community connections while preserving traditional flavors and hospitality.',
       phone: '+255 XXX XXX XXX',
       email: 'info@asilicafe.co.tz',
       address: 'Mtweni opposite Karume Institute of Science and Technology | Kinazi mmoja opposite Mmoja Hospital, Zanzibar'

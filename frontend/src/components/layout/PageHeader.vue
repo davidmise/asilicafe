@@ -1,13 +1,13 @@
 <template>
   <div class="container-fluid page-header position-relative" :style="headerStyle">
     <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-      <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">{{ title }}</h1>
+      <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase page-title">{{ title }}</h1>
       <div class="d-inline-flex mb-lg-5">
-        <p class="m-0 text-white">
+        <p class="m-0 text-white breadcrumb-text">
           <router-link class="text-white" to="/">Home</router-link>
         </p>
         <p class="m-0 text-white px-2">/</p>
-        <p class="m-0 text-white">{{ breadcrumb || title }}</p>
+        <p class="m-0 text-white breadcrumb-text">{{ breadcrumb || title }}</p>
       </div>
     </div>
   </div>
@@ -55,5 +55,45 @@ const headerStyle = computed(() => ({
 
 router-link.text-white:hover {
   color: #DA9F5B !important;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .page-header {
+    min-height: 300px !important;
+  }
+  
+  .page-header > div {
+    min-height: 300px !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .page-title {
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .breadcrumb-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-header {
+    min-height: 250px !important;
+  }
+  
+  .page-header > div {
+    min-height: 250px !important;
+  }
+  
+  .page-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .breadcrumb-text {
+    font-size: 0.85rem;
+  }
 }
 </style>
