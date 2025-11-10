@@ -12,12 +12,6 @@
           >
           <!-- Coffee Pour Animation -->
           <div class="coffee-pour" ref="coffeePour"></div>
-          <!-- Steam Animation -->
-          <div class="steam-container">
-            <div class="steam steam-1" ref="steam1"></div>
-            <div class="steam steam-2" ref="steam2"></div>
-            <div class="steam steam-3" ref="steam3"></div>
-          </div>
         </div>
         
         <!-- Loading Text -->
@@ -49,9 +43,6 @@ const loaderContainer = ref(null)
 const jarContainer = ref(null)
 const jarLogo = ref(null)
 const coffeePour = ref(null)
-const steam1 = ref(null)
-const steam2 = ref(null)
-const steam3 = ref(null)
 const loadingText = ref(null)
 const loadingMessage = ref(null)
 const dot1 = ref(null)
@@ -75,7 +66,6 @@ const initAnimations = () => {
   // Initial states
   gsap.set(jarLogo.value, { scale: 0, rotation: -180, opacity: 0 })
   gsap.set(coffeePour.value, { scaleY: 0, transformOrigin: 'top center' })
-  gsap.set([steam1.value, steam2.value, steam3.value], { opacity: 0, y: 20 })
   gsap.set(loadingText.value, { opacity: 0, y: 30 })
   gsap.set([dot1.value, dot2.value, dot3.value], { scale: 0 })
   gsap.set(progressBar.value, { scaleX: 0, transformOrigin: 'left center' })
@@ -104,15 +94,6 @@ const initAnimations = () => {
       duration: 1.5,
       ease: 'power2.inOut'
     }, '-=0.8')
-    // Steam rising
-    .to([steam1.value, steam2.value, steam3.value], {
-      opacity: 0.7,
-      y: -50,
-      duration: 2,
-      stagger: 0.2,
-      ease: 'power1.out',
-      repeat: -1
-    }, '-=1')
     // Loading text fade in
     .to(loadingText.value, {
       opacity: 1,
@@ -243,43 +224,6 @@ onUnmounted(() => {
   border-radius: 10px;
   filter: blur(2px);
   z-index: 1;
-}
-
-/* Steam Animation */
-.steam-container {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-}
-
-.steam {
-  position: absolute;
-  width: 8px;
-  height: 30px;
-  background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 100%
-  );
-  border-radius: 50%;
-  filter: blur(3px);
-}
-
-.steam-1 {
-  left: 30%;
-  animation-delay: 0s;
-}
-
-.steam-2 {
-  left: 50%;
-  animation-delay: 0.3s;
-}
-
-.steam-3 {
-  left: 70%;
-  animation-delay: 0.6s;
 }
 
 /* Loading Text */
