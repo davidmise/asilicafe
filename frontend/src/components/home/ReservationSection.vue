@@ -11,7 +11,7 @@
               </div>
               <p class="text-white">
                 Reserve your table at either of our Asili Cafe branches in Zanzibar - Mtweni opposite Karume Institute of Science and Technology, or Kinazi mmoja opposite Mmoja Hospital. 
-                Perfect for students, professionals, and families looking for authentic Swahili coffee and cuisine.
+                Perfect for students, professionals, and families looking for authentic Swahili cuisine and a memorable dining experience.
               </p>
               <ul class="list-inline text-white m-0">
                 <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Two convenient locations in Zanzibar</li>

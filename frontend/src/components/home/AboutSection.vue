@@ -8,8 +8,8 @@
       <div class="row">
         <div class="col-lg-4 py-0 py-lg-5 about-story" ref="aboutStory">
           <h1 class="mb-3 story-title">{{ storyTitle || 'Our Story' }}</h1>
-          <h5 class="mb-3 story-subtitle">Bringing authentic Swahili coffee culture since 2010</h5>
-          <p class="story-content">{{ storyContent || 'Located in the beautiful island of Zanzibar, Asili Cafe has been serving the finest locally sourced coffee to our community for over a decade. With two convenient branches - one opposite Karume Institute of Science and Technology and another at Kinazi mmoja opposite Mmoja Hospital - we take pride in showcasing the rich coffee heritage of Zanzibar.' }}</p>
+          <h5 class="mb-3 story-subtitle">Bringing authentic Swahili culinary traditions since 2010</h5>
+          <p class="story-content">{{ storyContent || 'Located in the beautiful island of Zanzibar, Asili Cafe has been celebrating the rich culinary heritage of the Swahili coast for over a decade. Our two convenient branches - one opposite Karume Institute of Science and Technology and another at Kinazi mmoja opposite Mmoja Hospital - serve as cultural ambassadors for traditional East African coastal cuisine, featuring fresh seafood, aromatic spices, and time-honored recipes.' }}</p>
           <RouterLink to="/about" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2 story-btn">
             Learn More
           </RouterLink>
@@ -21,8 +21,8 @@
         </div>
         <div class="col-lg-4 py-0 py-lg-5 about-vision" ref="aboutVision">
           <h1 class="mb-3 vision-title">{{ visionTitle || 'Our Vision' }}</h1>
-          <p class="vision-content">{{ visionContent || 'To be Zanzibar\'s premier destination for exceptional coffee experiences, fostering community connections while supporting local farmers and sustainable practices. We envision Asili Cafe as a cultural hub where tradition meets innovation across our two branches in the heart of Zanzibar.' }}</p>
-          <h5 class="mb-3 vision-feature"><i class="fa fa-check text-primary mr-3 feature-icon"></i>Premium Swahili coffee beans</h5>
+          <p class="vision-content">{{ visionContent || 'To be Zanzibar\'s premier destination for authentic Swahili cuisine, preserving traditional flavors while creating memorable dining experiences. We envision Asili Cafe as a cultural culinary hub where every dish tells the story of our beautiful spice islands and generations of coastal traditions.' }}</p>
+          <h5 class="mb-3 vision-feature"><i class="fa fa-check text-primary mr-3 feature-icon"></i>Traditional Swahili recipes and spice blends</h5>
           <h5 class="mb-3 vision-feature"><i class="fa fa-check text-primary mr-3 feature-icon"></i>Two convenient locations</h5>
           <h5 class="mb-3 vision-feature"><i class="fa fa-check text-primary mr-3 feature-icon"></i>Community gathering spaces</h5>
           <RouterLink to="/about" class="btn btn-primary font-weight-bold py-2 px-4 mt-2 vision-btn">

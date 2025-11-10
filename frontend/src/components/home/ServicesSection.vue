@@ -7,8 +7,8 @@
       </div> -->
 
       <div class="section-title" ref="sectionTitle">
-        <h4 class="text-primary text-uppercase section-subtitle" style="letter-spacing: 5px;">Digital Ordering</h4>
-        <h1 class="display-4 section-main-title">{{ servicesTitle || 'Scan & Order with QR Code' }}</h1>
+        <h4 class="text-primary text-uppercase section-subtitle" style="letter-spacing: 5px;">Our Services</h4>
+        <h1 class="display-4 section-main-title">{{ servicesTitle || 'Authentic Swahili Dining Experience' }}</h1>
       </div>
       <div class="row" ref="servicesRow">
         <!-- QR Code Demo Section -->
@@ -125,14 +125,14 @@ const fallbackServices = [
   {
     id: 1,
     title: 'Scan QR Code for Menu',
-    description: 'Simply scan the QR code at your table to instantly access our full digital menu. Browse through our authentic Swahili coffee selections, traditional dishes, and special offers from both branches.',
+    description: 'Simply scan the QR code at your table to instantly access our full digital menu. Browse through our authentic Swahili cuisine selections, traditional dishes, seafood specialties, and special offers from both branches.',
     image: '/img/service-1.jpg',
     icon: 'fa fa-qrcode'
   },
   {
     id: 2,
     title: 'Select Your Order',
-    description: 'Choose from our extensive menu featuring premium coffee, fresh juices, traditional Swahili cuisine, and delicious snacks. Customize your order with available options and variations.',
+    description: 'Choose from our extensive menu featuring traditional Swahili cuisine, fresh seafood, aromatic pilau, coconut curries, and authentic beverages. Customize your order with available options and variations.',
     image: '/img/service-2.jpg',
     icon: 'fa fa-mobile-alt'
   },

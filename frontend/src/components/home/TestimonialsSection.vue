@@ -123,7 +123,7 @@ testimonials.value = [
     id: 1,
     name: 'Amina Juma',
     profession: 'Karume Institute Student',
-    message: 'Perfect study spot opposite our institute! Amazing coffee and the staff is so friendly. I come here every day to work on my assignments. The Mtweni branch is peaceful and perfect for learning.',
+    message: 'Perfect study spot opposite our institute! Amazing traditional dishes and the staff is so friendly. I come here every day to enjoy authentic Swahili meals between classes. The Mtweni branch is peaceful and perfect for learning.',
     image: '/img/testimonial-1.jpg',
     rating: 5
   },
@@ -131,7 +131,7 @@ testimonials.value = [
     id: 2,
     name: 'Dr. Salim Khamis',
     profession: 'Medical Doctor',
-    message: 'As a doctor working at Mmoja Hospital, the Kinazi mmoja branch is my go-to place for quality coffee and quick meals between shifts. The location is perfect and the service is consistently excellent.',
+    message: 'As a doctor working at Mmoja Hospital, the Kinazi mmoja branch is my go-to place for quality Swahili cuisine and quick meals between shifts. The location is perfect and the service is consistently excellent.',
     image: '/img/testimonial-2.jpg',
     rating: 5
   },
@@ -139,7 +139,7 @@ testimonials.value = [
     id: 3,
     name: 'Fatma Mrisho',
     profession: 'Local Business Owner',
-    message: 'I bring all my business meetings to both branches. The ambiance is professional yet relaxed, and their Swahili spiced coffee is the best on the island. Highly recommend their traditional dishes too!',
+    message: 'I bring all my business meetings to both branches. The ambiance is professional yet relaxed, and their traditional Swahili dishes are the best on the island. The pilau and seafood specialties are absolutely incredible!',
     image: '/img/testimonial-3.jpg',
     rating: 5
   },
@@ -147,7 +147,7 @@ testimonials.value = [
     id: 4,
     name: 'Hassan Ali',
     profession: 'Tech Student',
-    message: 'Great WiFi at both locations, comfortable seating, and excellent coffee. Perfect place for coding sessions and group projects. The staff understands students and always makes us feel welcome.',
+    message: 'Great WiFi at both locations, comfortable seating, and excellent traditional cuisine. Perfect place for coding sessions and group projects. The authentic flavors and friendly service make us feel right at home.',
     image: '/img/testimonial-4.jpg',
     rating: 4
   }
